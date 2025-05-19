@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Telegram Tinder WebApp</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
+      background: linear-gradient(to bottom, #f9fafb, #e5e7eb);
       margin: 0;
       padding: 20px;
+      direction: rtl;
     }
     .profile-card {
       background: white;
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      max-width: 350px;
+      max-width: 360px;
       margin: auto;
       padding: 20px;
       text-align: center;
     }
     img {
-      width: 130px;
-      height: 130px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 15px;
@@ -58,7 +59,7 @@
 </head>
 <body>
   <div class="profile-card">
-    <img id="photo" src="https://via.placeholder.com/130" alt="صورة المستخدم">
+    <img id="photo" src="https://via.placeholder.com/140" alt="صورة المستخدم">
     <h2 id="name">اسم المستخدم</h2>
     <p id="age">العمر: --</p>
     <p id="bio">نبذة قصيرة...</p>
@@ -70,34 +71,30 @@
 
   <script>
     const tg = window.Telegram.WebApp;
-
-    let users = [];
-let index = 0;
-
-async function fetchUsers() {
-  const res = await fetch("http://localhost:8080/users");
-  users = await res.json();
-  loadUser();
-}
-        name: "أحمد",
-        age: 30,
-        bio: "موسيقي وعاشق للمغامرات",
-        photo: "https://randomuser.me/api/portraits/men/32.jpg"
-      }
-    ];
-
+    const users = [];
     let index = 0;
+
+    async function fetchProfiles() {
+      try {
+        const res = await fetch("http://127.0.0.1:5000/profiles");
+        const data = await res.json();
+        users.push(...data);
+        loadUser();
+      } catch (e) {
+        document.body.innerHTML = "<h3 style='text-align:center;'>فشل الاتصال بالخادم.</h3>";
+      }
+    }
 
     function loadUser() {
       if (index >= users.length) {
-        document.body.innerHTML = "<h3 style='text-align:center;'>لا مزيد من المستخدمين الآن.</h3>";
+        document.body.innerHTML = "<h3 style='text-align:center;'>لا مزيد من المستخدمين.</h3>";
         return;
       }
       const user = users[index];
       document.getElementById("name").textContent = user.name;
       document.getElementById("age").textContent = "العمر: " + user.age;
       document.getElementById("bio").textContent = user.bio;
-      document.getElementById("photo").src = user.photo;
+      document.getElementById("photo").src = user.photo || "https://via.placeholder.com/140";
     }
 
     function sendAction(action) {
@@ -108,8 +105,8 @@ async function fetchUsers() {
     }
 
     window.onload = () => {
-      fetchUser();
       tg.expand();
+      fetchProfiles();
     };
   </script>
 </body>
