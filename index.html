@@ -71,14 +71,14 @@
   <script>
     const tg = window.Telegram.WebApp;
 
-    const users = [
-      {
-        name: "سارة",
-        age: 24,
-        bio: "أحب التصوير والسفر",
-        photo: "https://randomuser.me/api/portraits/women/45.jpg"
-      },
-      {
+    let users = [];
+let index = 0;
+
+async function fetchUsers() {
+  const res = await fetch("http://localhost:8080/users");
+  users = await res.json();
+  loadUser();
+}
         name: "أحمد",
         age: 30,
         bio: "موسيقي وعاشق للمغامرات",
@@ -108,7 +108,7 @@
     }
 
     window.onload = () => {
-      loadUser();
+      fetchUser();
       tg.expand();
     };
   </script>
