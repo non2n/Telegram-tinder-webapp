@@ -1,120 +1,241 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Telegram Tinder</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <title>Luke Meet</title>
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Cairo', sans-serif;
-    }
     body {
       margin: 0;
-      background: linear-gradient(to bottom, #f0f2f5, #e0e7ff);
-      padding: 20px;
-      text-align: center;
-    }
-    .card {
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      max-width: 350px;
-      margin: 20px auto;
-      padding: 20px;
-      transition: transform 0.3s;
-    }
-    .card img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
-    h2 {
-      margin: 10px 0 5px;
-      font-size: 22px;
-    }
-    p {
-      margin: 5px;
-      color: #555;
-    }
-    .buttons {
-      margin-top: 20px;
-    }
-    .buttons button {
-      padding: 10px 25px;
-      margin: 5px;
-      border: none;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .like {
-      background-color: #16a34a;
-      color: white;
-    }
-    .skip {
-      background-color: #dc2626;
-      color: white;
-    }
-    .start {
-      background-color: #3b82f6;
-      color: white;
-      padding: 15px 30px;
-      border-radius: 30px;
-      margin-top: 100px;
-    }
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
+      color: #111827;
+      transition: background 0.3s ease;
+    }header {
+  background-color: #4f46e5;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  max-width: 360px;
+  margin: 30px auto;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #4f46e5;
+}
+
+h2 {
+  margin: 10px 0 5px;
+}
+
+p {
+  margin: 5px;
+  color: #555;
+}
+
+.extra-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.like {
+  background-color: #22c55e;
+  color: white;
+}
+
+.skip {
+  background-color: #e11d48;
+  color: white;
+}
+
+.view-profile {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.dark-mode {
+  background: #111827;
+  color: #f3f4f6;
+}
+
+.dark-mode .profile-card {
+  background: #1f2937;
+  color: #f3f4f6;
+}
+
+.dark-mode p, .dark-mode .extra-info {
+  color: #cbd5e1;
+}
+
+.welcome-screen {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.start-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #4f46e5;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #4f46e5;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.nav-item {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
   </style>
 </head>
 <body>
-
-  <div id="welcome">
-    <h1>مرحبًا بك في تيندر تليجرام</h1>
-    <button class="start" onclick="startApp()">ابدأ الآن</button>
+  <header>Luke Meet</header>  <div id="app">
+    <div class="welcome-screen" id="welcomeScreen">
+      <img src="A_2D_digital_illustration_serves_as_the_welcome_sc.png" alt="Welcome" style="width: 220px; border-radius: 20px;" />
+      <h2>مرحباً بك في Luke Meet!</h2>
+      <p>ابدأ التواصل واكتشف من يناسبك</p>
+      <button class="start-btn" onclick="startApp()">ابدأ الآن</button>
+    </div><div id="profileCard" class="profile-card hidden">
+  <img id="photo" src="" alt="صورة المستخدم">
+  <h2 id="name"></h2>
+  <p id="age"></p>
+  <p id="bio"></p>
+  <div class="extra-info" id="extraInfo"></div>
+  <div class="buttons">
+    <button class="like" onclick="sendAction('like')">إعجاب</button>
+    <button class="skip" onclick="sendAction('skip')">تخطي</button>
+    <button class="view-profile" onclick="viewProfile()">عرض الملف</button>
   </div>
+</div>
 
-  <div id="app" style="display:none;">
-    <div class="card" id="profile-card">
-      <img id="photo" src="" alt="صورة المستخدم" />
-      <h2 id="name">...</h2>
-      <p id="age">العمر: --</p>
-      <p id="bio">نبذة قصيرة...</p>
-    </div>
-    <div class="buttons">
-      <button class="like" onclick="sendAction('like')">إعجاب</button>
-      <button class="skip" onclick="sendAction('skip')">تخطي</button>
-    </div>
-  </div>
+<div class="loading hidden" id="loading">جاري التحميل...</div>
 
-  <script>
+<div class="hidden" id="chatScreen">
+  <h3 style="text-align:center">المحادثة الصوتية</h3>
+  <p style="text-align:center;">يمكنك إرسال رسالة صوتية هنا</p>
+  <button style="display:block;margin:10px auto;padding:10px 20px;background:#4f46e5;color:white;border:none;border-radius:8px;">تسجيل صوتي</button>
+</div>
+
+<div class="hidden" id="profileScreen">
+  <h3 style="text-align:center">ملفي الشخصي</h3>
+  <p style="text-align:center;">تحديث بياناتك وتفاصيلك الشخصية.</p>
+</div>
+
+  </div>  <div class="navbar">
+    <div class="nav-item" onclick="showScreen('profileCard')">الرئيسية</div>
+    <div class="nav-item" onclick="showScreen('chatScreen')">الدردشة</div>
+    <div class="nav-item" onclick="showScreen('profileScreen')">حسابي</div>
+  </div>  <script>
     const tg = window.Telegram.WebApp;
+
     const users = [
-      { name: "سارة", age: 23, bio: "أحب السفر والتصوير", photo: "https://randomuser.me/api/portraits/women/45.jpg" },
-      { name: "أحمد", age: 29, bio: "مطوّر ويب ومحب للموسيقى", photo: "https://randomuser.me/api/portraits/men/32.jpg" },
-      { name: "ليلى", age: 26, bio: "كاتبة ومهتمة بالفن", photo: "https://randomuser.me/api/portraits/women/50.jpg" }
+      {
+        name: "سارة",
+        age: 24,
+        bio: "أحب التصوير والسفر",
+        photo: "https://randomuser.me/api/portraits/women/45.jpg",
+        city: "الرياض",
+        interests: "السينما، القراءة"
+      },
+      {
+        name: "أحمد",
+        age: 30,
+        bio: "موسيقي وعاشق للمغامرات",
+        photo: "https://randomuser.me/api/portraits/men/32.jpg",
+        city: "جدة",
+        interests: "الطبخ، التخييم"
+      }
     ];
+
     let index = 0;
 
     function startApp() {
-      document.getElementById("welcome").style.display = "none";
-      document.getElementById("app").style.display = "block";
-      tg.expand();
+      document.getElementById("welcomeScreen").classList.add("hidden");
       loadUser();
+      document.getElementById("profileCard").classList.remove("hidden");
+      tg.expand();
     }
 
     function loadUser() {
-      if (index >= users.length) {
-        document.getElementById("app").innerHTML = "<h3>لا يوجد مزيد من المستخدمين الآن</h3>";
-        return;
-      }
-      const user = users[index];
-      document.getElementById("name").textContent = user.name;
-      document.getElementById("age").textContent = "العمر: " + user.age;
-      document.getElementById("bio").textContent = user.bio;
-      document.getElementById("photo").src = user.photo;
+      document.getElementById("loading").classList.remove("hidden");
+      document.getElementById("profileCard").classList.add("hidden");
+
+      setTimeout(() => {
+        if (index >= users.length) {
+          document.getElementById("app").innerHTML = "<h3 style='text-align:center;'>لا مزيد من المستخدمين الآن.</h3>";
+          return;
+        }
+        const user = users[index];
+        document.getElementById("name").textContent = user.name;
+        document.getElementById("age").textContent = "العمر: " + user.age;
+        document.getElementById("bio").textContent = user.bio;
+        document.getElementById("photo").src = user.photo;
+        document.getElementById("extraInfo").textContent = `المدينة: ${user.city} - الاهتمامات: ${user.interests}`;
+
+        document.getElementById("loading").classList.add("hidden");
+        document.getElementById("profileCard").classList.remove("hidden");
+      }, 500);
     }
 
     function sendAction(action) {
@@ -123,6 +244,20 @@
       index++;
       loadUser();
     }
-  </script>
-</body>
+
+    function viewProfile() {
+      alert("عرض الملف الكامل للمستخدم: " + users[index].name);
+    }
+
+    function showScreen(id) {
+      ["profileCard", "chatScreen", "profileScreen"].forEach(section => {
+        document.getElementById(section).classList.add("hidden");
+      });
+      document.getElementById(id).classList.remove("hidden");
+    }
+
+    if (tg.colorScheme === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+  </script></body>
 </html>
