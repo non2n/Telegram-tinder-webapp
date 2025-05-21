@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,187 +8,234 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
+      background-color: #f9fafb;
       color: #111827;
       transition: background 0.3s ease;
-    }header {
-  background-color: #4f46e5;
-  color: white;
-  padding: 15px 20px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.profile-card {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-  max-width: 360px;
-  margin: 30px auto;
-  padding: 20px;
-  text-align: center;
-  transition: all 0.4s ease;
-}
-
-.loading {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 18px;
-}
-
-img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-  border: 3px solid #4f46e5;
-}
-
-h2 {
-  margin: 10px 0 5px;
-}
-
-p {
-  margin: 5px;
-  color: #555;
-}
-
-.extra-info {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #666;
-}
-
-.buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 15px;
-  transition: transform 0.2s ease;
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-.like {
-  background-color: #22c55e;
-  color: white;
-}
-
-.skip {
-  background-color: #e11d48;
-  color: white;
-}
-
-.view-profile {
-  background-color: #3b82f6;
-  color: white;
-}
-
-.dark-mode {
-  background: #111827;
-  color: #f3f4f6;
-}
-
-.dark-mode .profile-card {
-  background: #1f2937;
-  color: #f3f4f6;
-}
-
-.dark-mode p, .dark-mode .extra-info {
-  color: #cbd5e1;
-}
-
-.welcome-screen {
-  text-align: center;
-  margin-top: 100px;
-}
-
-.start-btn {
-  margin-top: 20px;
-  padding: 12px 25px;
-  background-color: #4f46e5;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.navbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #4f46e5;
-  color: white;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-}
-
-.nav-item {
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.hidden {
-  display: none;
-}
-
+    }
+    header {
+      background-color: #fd3a73;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .profile-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      max-width: 360px;
+      margin: 30px auto;
+      padding: 20px;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+    .loading {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 18px;
+    }
+    img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #fd3a73;
+    }
+    h2 {
+      margin: 10px 0 5px;
+    }
+    p {
+      margin: 5px;
+      color: #555;
+    }
+    .extra-info {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+      transition: transform 0.2s ease;
+    }
+    button:active {
+      transform: scale(0.95);
+    }
+    .like {
+      background-color: #10b981;
+      color: white;
+    }
+    .skip {
+      background-color: #ef4444;
+      color: white;
+    }
+    .view-profile {
+      background-color: #3b82f6;
+      color: white;
+    }
+    .dark-mode {
+      background: #111827;
+      color: #f3f4f6;
+    }
+    .dark-mode .profile-card {
+      background: #1f2937;
+      color: #f3f4f6;
+    }
+    .dark-mode p, .dark-mode .extra-info {
+      color: #cbd5e1;
+    }
+    .welcome-screen {
+      text-align: center;
+      margin-top: 60px;
+      animation: fadeIn 1s ease;
+    }
+    .start-btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #fd3a73;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .welcome-img {
+      width: 260px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      animation: zoomIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .chat-page {
+      display: none;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      animation: fadeIn 0.4s ease;
+    }
+    .message {
+      padding: 10px 15px;
+      margin: 10px;
+      border-radius: 15px;
+      max-width: 70%;
+    }
+    .from-me {
+      background-color: #fd3a73;
+      color: white;
+      align-self: flex-end;
+      margin-left: auto;
+    }
+    .from-other {
+      background-color: #e5e7eb;
+      color: #111827;
+      align-self: flex-start;
+      margin-right: auto;
+    }
+    .message-box {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .message-box input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    .message-box button {
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+    }
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      background-color: white;
+      border-top: 1px solid #ccc;
+    }
+    .dark-mode .bottom-nav {
+      background-color: #1f2937;
+      border-top: 1px solid #374151;
+    }
+    .nav-item {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .nav-item.active {
+      background-color: #fd3a73;
+      color: white;
+    }
   </style>
 </head>
 <body>
-  <header>Luke Meet</header>  <div id="app">
+  <header>Luke Meet</header>
+  <div id="app">
     <div class="welcome-screen" id="welcomeScreen">
-      <img src="A_2D_digital_illustration_serves_as_the_welcome_sc.png" alt="Welcome" style="width: 220px; border-radius: 20px;" />
+      <img class="welcome-img" src="A_2D_digital_illustration_serves_as_the_welcome_sc.png" alt="Welcome" />
       <h2>مرحباً بك في Luke Meet!</h2>
-      <p>ابدأ التواصل واكتشف من يناسبك</p>
+      <p>اكتشف أناس جدد وابدأ رحلتك الاجتماعية الآن</p>
       <button class="start-btn" onclick="startApp()">ابدأ الآن</button>
-    </div><div id="profileCard" class="profile-card hidden">
-  <img id="photo" src="" alt="صورة المستخدم">
-  <h2 id="name"></h2>
-  <p id="age"></p>
-  <p id="bio"></p>
-  <div class="extra-info" id="extraInfo"></div>
-  <div class="buttons">
-    <button class="like" onclick="sendAction('like')">إعجاب</button>
-    <button class="skip" onclick="sendAction('skip')">تخطي</button>
-    <button class="view-profile" onclick="viewProfile()">عرض الملف</button>
+    </div>
+
+    <div class="profile-card" id="profileCard" style="display:none;">
+      <img id="photo" src="" alt="صورة المستخدم">
+      <h2 id="name"></h2>
+      <p id="age"></p>
+      <p id="bio"></p>
+      <div class="extra-info" id="extraInfo"></div>
+      <div class="buttons">
+        <button class="like" onclick="sendAction('like')">إعجاب</button>
+        <button class="skip" onclick="sendAction('skip')">تخطي</button>
+        <button class="view-profile" onclick="viewProfile()">عرض الملف</button>
+      </div>
+    </div>
+
+    <div class="chat-page" id="chatPage">
+      <div class="message from-other">مرحباً، كيف حالك؟</div>
+      <div class="message from-me">تمام، وأنت؟</div>
+      <div class="message-box">
+        <input type="text" placeholder="اكتب رسالة..." id="messageInput">
+        <button onclick="sendMessage()">إرسال</button>
+      </div>
+    </div>
+
+    <div class="loading" id="loading" style="display:none;">جاري التحميل...</div>
   </div>
-</div>
 
-<div class="loading hidden" id="loading">جاري التحميل...</div>
+  <div class="bottom-nav">
+    <div class="nav-item active" onclick="navigate('profile')">مطابقة</div>
+    <div class="nav-item" onclick="navigate('chat')">دردشة</div>
+    <div class="nav-item" onclick="alert('سيتم إضافة الإعدادات لاحقًا')">الإعدادات</div>
+  </div>
 
-<div class="hidden" id="chatScreen">
-  <h3 style="text-align:center">المحادثة الصوتية</h3>
-  <p style="text-align:center;">يمكنك إرسال رسالة صوتية هنا</p>
-  <button style="display:block;margin:10px auto;padding:10px 20px;background:#4f46e5;color:white;border:none;border-radius:8px;">تسجيل صوتي</button>
-</div>
-
-<div class="hidden" id="profileScreen">
-  <h3 style="text-align:center">ملفي الشخصي</h3>
-  <p style="text-align:center;">تحديث بياناتك وتفاصيلك الشخصية.</p>
-</div>
-
-  </div>  <div class="navbar">
-    <div class="nav-item" onclick="showScreen('profileCard')">الرئيسية</div>
-    <div class="nav-item" onclick="showScreen('chatScreen')">الدردشة</div>
-    <div class="nav-item" onclick="showScreen('profileScreen')">حسابي</div>
-  </div>  <script>
-    const tg = window.Telegram.WebApp;
+  <script>
+    const tg = window.Telegram?.WebApp || { sendData: () => {}, expand: () => {}, colorScheme: "light" };
 
     const users = [
       {
@@ -211,15 +259,15 @@ button:active {
     let index = 0;
 
     function startApp() {
-      document.getElementById("welcomeScreen").classList.add("hidden");
+      document.getElementById("welcomeScreen").style.display = "none";
       loadUser();
-      document.getElementById("profileCard").classList.remove("hidden");
+      document.getElementById("profileCard").style.display = "block";
       tg.expand();
     }
 
     function loadUser() {
-      document.getElementById("loading").classList.remove("hidden");
-      document.getElementById("profileCard").classList.add("hidden");
+      document.getElementById("loading").style.display = "block";
+      document.getElementById("profileCard").style.display = "none";
 
       setTimeout(() => {
         if (index >= users.length) {
@@ -233,8 +281,8 @@ button:active {
         document.getElementById("photo").src = user.photo;
         document.getElementById("extraInfo").textContent = `المدينة: ${user.city} - الاهتمامات: ${user.interests}`;
 
-        document.getElementById("loading").classList.add("hidden");
-        document.getElementById("profileCard").classList.remove("hidden");
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("profileCard").style.display = "block";
       }, 500);
     }
 
@@ -249,15 +297,29 @@ button:active {
       alert("عرض الملف الكامل للمستخدم: " + users[index].name);
     }
 
-    function showScreen(id) {
-      ["profileCard", "chatScreen", "profileScreen"].forEach(section => {
-        document.getElementById(section).classList.add("hidden");
-      });
-      document.getElementById(id).classList.remove("hidden");
+    function navigate(section) {
+      document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+      event.target.classList.add('active');
+
+      document.getElementById("profileCard").style.display = section === 'profile' ? 'block' : 'none';
+      document.getElementById("chatPage").style.display = section === 'chat' ? 'flex' : 'none';
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("messageInput");
+      const msg = input.value.trim();
+      if (msg !== "") {
+        const div = document.createElement("div");
+        div.className = "message from-me";
+        div.textContent = msg;
+        document.getElementById("chatPage").insertBefore(div, document.querySelector(".message-box"));
+        input.value = "";
+      }
     }
 
     if (tg.colorScheme === "dark") {
       document.body.classList.add("dark-mode");
     }
-  </script></body>
+  </script>
+</body>
 </html>
