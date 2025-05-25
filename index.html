@@ -225,17 +225,22 @@
       </div>
     </div>
 
+    <div id="settingsPage" style="display:none; padding: 20px; text-align:center;">
+      <h3>الإعدادات</h3>
+      <button onclick="showUserInfo()">عرض بياناتي</button>
+    </div>
+
     <div class="loading" id="loading" style="display:none;">جاري التحميل...</div>
   </div>
 
   <div class="bottom-nav">
     <div class="nav-item active" onclick="navigate('profile')">مطابقة</div>
     <div class="nav-item" onclick="navigate('chat')">دردشة</div>
-    <div class="nav-item" onclick="alert('سيتم إضافة الإعدادات لاحقًا')">الإعدادات</div>
+    <div class="nav-item" onclick="navigate('settings')">الإعدادات</div>
   </div>
 
   <script>
-    const tg = window.Telegram?.WebApp || { sendData: () => {}, expand: () => {}, colorScheme: "light" };
+    const tg = window.Telegram?.WebApp || { sendData: () => {}, expand: () => {}, colorScheme: "light", initDataUnsafe: {} };
 
     const users = [
       {
@@ -303,6 +308,7 @@
 
       document.getElementById("profileCard").style.display = section === 'profile' ? 'block' : 'none';
       document.getElementById("chatPage").style.display = section === 'chat' ? 'flex' : 'none';
+      document.getElementById("settingsPage").style.display = section === 'settings' ? 'block' : 'none';
     }
 
     function sendMessage() {
@@ -314,6 +320,15 @@
         div.textContent = msg;
         document.getElementById("chatPage").insertBefore(div, document.querySelector(".message-box"));
         input.value = "";
+      }
+    }
+
+    function showUserInfo() {
+      const user = tg.initDataUnsafe?.user;
+      if (user) {
+        alert(`مرحباً ${user.first_name}!\nمعرّفك هو: ${user.id}\nالمعرف: @${user.username || 'غير متوفر'}`);
+      } else {
+        alert("لم يتم الحصول على معلومات المستخدم.");
       }
     }
 
